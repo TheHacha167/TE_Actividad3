@@ -1,0 +1,113 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #E3F2FD; /* Fondo claro tirando a azul */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(90deg, #1565C0 0%, #42A5F5 100%);
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav {
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffeb3b; /* Un pequeño contraste al pasar el cursor */
+}
+
+/* Contenido principal */
+main {
+    padding: 20px;
+    min-height: 500px; /* Asegura espacio suficiente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 120px); /* Ajuste dinámico */
+}
+
+/* Estilos para el contenedor del home */
+.home-container {
+    max-width: 600px;
+    width: 90%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.home-container h2 {
+    color: #1565C0;
+    margin-bottom: 20px;
+}
+
+.home-container p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Centrar botón */
+.home-container .btn-primary {
+    background-color: #1565C0;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.home-container .btn-primary:hover {
+    background-color: #0d47a1; /* Tonalidad más oscura al hacer hover */
+}
+
+/* FOOTER */
+footer {
+    background: linear-gradient(90deg, #1565C0 0%, #42A5F5 100%);
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 600px) {
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .home-container {
+        padding: 20px;
+    }
+}

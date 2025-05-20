@@ -1,0 +1,9 @@
+<h2>Resultados</h2>
+<ul class="results-list">
+  <li *ngFor="let station of gasStations">
+    <!-- Mostrar info resumida de cada gasolinera -->
+    <strong>{{station.name}}</strong>  
+    <span class="details">(a {{station.distance}} km) - Precio: {{station.price}} €/L</span>
+    <a [routerLink]="['/station', station.id]">Ver detalle</a>
+  </li>
+</ul>

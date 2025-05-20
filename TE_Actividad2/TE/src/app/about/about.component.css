@@ -1,0 +1,39 @@
+.about-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.about-container h2 {
+    color: #1565C0;
+}
+
+.about-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-container li {
+    background: #E3F2FD;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #1565C0;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+    background: #0d47a1;
+}

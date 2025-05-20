@@ -1,0 +1,3 @@
+npm install -D angular-cli-ghpages
+ng build --output-path=dist/TE_Actividad3 --base-href "https://thehacha167.github.io/TE_Actividad3/"
+npx angular-cli-ghpages --dir=dist/TE_Actividad3

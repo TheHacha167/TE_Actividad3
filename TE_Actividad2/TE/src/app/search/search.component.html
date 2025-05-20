@@ -1,0 +1,87 @@
+<h2>Filtrar Gasolineras</h2>
+
+<!-- Spinner: se muestra mientras isLoading = true -->
+<div *ngIf="isLoading" style="margin: 1em 0;">
+  <p>Cargando gasolineras...</p>
+  <!-- Si usas Angular Material, puedes usar <mat-spinner></mat-spinner> -->
+  <div class="spinner"></div>
+</div>
+
+<!-- Solicitar localización del usuario -->
+<div *ngIf="!userLat || !userLng">
+  <p>Es necesario acceder a tu ubicación para calcular las distancias a las gasolineras.</p>
+  <button (click)="getUserLocation()">Obtener mi ubicación</button>
+</div>
+
+<!-- Si ya se cargaron los datos y tenemos la ubicación -->
+<div *ngIf="dataLoaded && !isLoading && userLat && userLng">
+  <div>
+    <button (click)="resetFilters()">Resetear Filtros</button>
+  </div>
+
+  <label>Empresa: </label>
+  <select [(ngModel)]="filters.empresa" (change)="onChangeEmpresa(); applyFilters()">
+    <option value="">(Todas)</option>
+    <option *ngFor="let emp of empresas" [value]="emp">{{ emp }}</option>
+    <option *ngIf="empresas.length === 0" disabled>No hay empresas disponibles</option>
+  </select>
+
+  <label>Carburante: </label>
+  <select [(ngModel)]="filters.carburante" (change)="applyFilters()">
+    <!-- <option value="">(Todos)</option> -->
+    <option *ngFor="let fuel of carburantes" [value]="fuel">{{ fuel }}</option>
+    <!-- <option *ngIf="carburantes.length === 0" disabled>No hay carburantes disponibles</option> -->
+  </select>
+
+  <label>Provincia: </label>
+  <select [(ngModel)]="filters.provincia" (change)="onChangeProvince(); applyFilters()">
+    <option value="">(Todas)</option>
+    <option *ngFor="let prov of provincias" [value]="prov">{{ prov }}</option>
+    <option *ngIf="provincias.length === 0" disabled>No hay provincias disponibles</option>
+  </select>
+
+  <label>Municipio: </label>
+  <select [(ngModel)]="filters.municipio" (change)="onChangeMunicipio(); applyFilters()">
+    <option value="">(Todos)</option>
+    <option *ngFor="let mun of municipios" [value]="mun">{{ mun }}</option>
+    <option *ngIf="municipios.length === 0" disabled>No hay municipios disponibles</option>
+  </select>
+
+  <label>Localidad: </label>
+  <select [(ngModel)]="filters.localidad" (change)="applyFilters()">
+    <option value="">(Todas)</option>
+    <option *ngFor="let loc of localidades" [value]="loc">{{ loc }}</option>
+    <option *ngIf="localidades.length === 0" disabled>No hay localidades disponibles</option>
+  </select>
+
+  <hr>
+  <!-- <button (click)="applyFilters()">Aplicar Filtros</button> -->
+
+  <h3>Resultados ({{ filteredGasStations.length }}):</h3>
+  
+  <table>
+    <tr>
+      <th>Empresa</th>
+      <th>Precio Carburante</th>
+      <th>Provincia</th>
+      <th>Municipio</th>
+      <th>Localidad</th>
+      <th>Distancia (km)</th> <!-- Nuevo -->
+    </tr>
+    <tr *ngFor="let station of filteredGasStations">
+      <td>{{ station['Rótulo'] }}</td>
+      <td>
+        {{ 
+          station['Precio ' + filters.carburante]
+            ? station['Precio ' + filters.carburante] + ' €/L'
+            : 'N/D' 
+        }}
+      </td>
+      <td>{{ station['Provincia'] }}</td>
+      <td>{{ station['Municipio'] }}</td>
+      <td>{{ station['Localidad'] }}</td>
+      <!-- Distancia calculada, con 1-2 decimales -->
+      <td>{{ station.distanceToUser | number:'1.2-2' }}</td>
+    </tr>
+  </table>
+</div>

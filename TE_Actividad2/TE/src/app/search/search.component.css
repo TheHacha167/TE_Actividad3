@@ -1,0 +1,152 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #E3F2FD;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Contenedor de filtros */
+.filter-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Alinear filtros en fila */
+.filter-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los labels y selects */
+.filter-row label {
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 120px; /* Tamaño uniforme */
+    text-align: right;
+}
+
+.filter-row select {
+    flex: 1; /* Ocupa el espacio restante */
+    max-width: 250px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #1565C0;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+}
+
+.filter-row select:focus {
+    border-color: #42A5F5;
+}
+
+/* Botón de acción */
+.filter-container button {
+    background-color: #1565C0;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 15px auto;
+    width: 100%;
+    max-width: 250px;
+}
+
+.filter-container button:hover {
+    background-color: #0d47a1;
+}
+
+/* Estilos para la tabla de resultados */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #1565C0;
+    color: white;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Spinner */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #1565C0;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .filter-container {
+        padding: 20px;
+    }
+
+    .filter-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-row label {
+        text-align: left;
+        width: 100%;
+    }
+
+    .filter-row select {
+        width: 100%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .filter-container button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Buscador de Gasolineras</title>
+  <link rel="stylesheet" href="app.component.css" />
+</head>
+<body>
+
+  <!-- Barra de navegación rediseñada -->
+  <mat-toolbar color="primary" class="topbar">
+    <div class="brand-container">
+      <span class="brand">Proyecto TE_Actividad3</span>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="nav-links">
+      <button mat-button routerLink="/home">Inicio</button>
+      <button mat-button (click)="reloadPage()">Buscar</button>
+      <button mat-button routerLink="/about">Acerca de</button>
+    </nav>
+  </mat-toolbar>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer>© 2025 - Proyecto TE_Actividad3</footer>
+</body>
+</html>
